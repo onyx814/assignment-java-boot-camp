@@ -1,5 +1,9 @@
 package com.example.ecommerce;
 
+import com.example.ecommerce.member.model.Address;
+import com.example.ecommerce.member.model.User;
+import com.example.ecommerce.member.repository.AddressRepository;
+import com.example.ecommerce.member.repository.UserRepository;
 import com.example.ecommerce.product.model.Product;
 import com.example.ecommerce.product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +18,12 @@ public class ECommerceApplication {
 
 	@Autowired
 	ProductRepository productRepository;
+
+	@Autowired
+	UserRepository userRepository;
+
+	@Autowired
+	AddressRepository addressRepository;
 
 	@PostConstruct
 	public void initialData() {
@@ -32,6 +42,16 @@ public class ECommerceApplication {
 
 		product = new Product("ผ้าปูที่นอนเก็บความเย็น 5 ฟุต", "ผ้าปูที่นอนเก็บความเย็น เหมาะสำหรับห้องที่มีแอร์ หลังจากปิดแอร์ผ้าปูจะยังเย็น นอนสบาย", new BigDecimal(1000));
 		productRepository.save(product);
+
+		/* For User */
+		User user = new User("Derdar Denduang","Derdar@gmail.com","0891234567");
+		userRepository.save(user);
+
+		/* For Address */
+		Address addr = new Address("เลขที่ 25 ABCDEFU Condo ถนนอ่อนนุช พระโขนงเหนือ","10260","วัฒนา","กรุงเทพมหานคร","0891234567","Y",user);
+		addressRepository.save(addr);
+		addr = new Address("เลขที่ 100  กขคง Condo ถนนอ่อนนุช พระโขนงเหนือ","10260","วัฒนา","กรุงเทพมหานคร","0911111111",null,user);
+		addressRepository.save(addr);
 	}
 
 	public static void main(String[] args) {
