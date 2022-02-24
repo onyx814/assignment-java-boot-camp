@@ -18,15 +18,17 @@ public class UserController extends BaseController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/{id}")
-    public ResponseObject findById(@PathVariable int id){
-        return  createResponse(userService.findById(id));
-    }
+
 
     /* not use
     @GetMapping()
     public ResponseList findAll(){
         return  createResponse(userService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseObject findById(@PathVariable int id){
+        return  createResponse(userService.findById(id));
     }
     */
 

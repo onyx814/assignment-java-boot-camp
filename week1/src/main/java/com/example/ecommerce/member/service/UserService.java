@@ -16,20 +16,17 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     public Optional<User> findById(int id){
         Optional<User> result = userRepository.findById(id);
         if(result.isPresent()){
             return  result;
         }
-        throw  new BaseNotFoundException(User.class.getSimpleName());
+        throw  new BaseNotFoundException(User.class.getSimpleName()+" id = "+ id);
     }
 
-    public List<User> findAll(){
-        List<User> result = userRepository.findAll();
-        if(!result.isEmpty()){
-            return  result;
-        }
-        throw  new BaseNotFoundException(User.class.getSimpleName());
-    }
 
 }

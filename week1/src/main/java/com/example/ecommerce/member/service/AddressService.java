@@ -20,7 +20,7 @@ public class AddressService {
         if(result.isPresent()){
             return  result;
         }
-        throw  new BaseNotFoundException(Address.class.getSimpleName());
+        throw  new BaseNotFoundException(Address.class.getSimpleName()+" Default Of User Id = "+id);
     }
 
     /* not use
