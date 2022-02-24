@@ -6,6 +6,9 @@ public class ResponseObject<T> extends ResponseBase {
 
     private T data;
 
+    public ResponseObject() {
+    }
+
     public ResponseObject(ResponseHeader header, T data) {
         this.setHeader(header);
         this.setData(data);

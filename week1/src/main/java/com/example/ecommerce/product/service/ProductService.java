@@ -22,7 +22,7 @@ public class ProductService {
     public List<Product> findAll(){
         List<Product> list = productRepository.findAll();
         if(list.isEmpty()){
-            throw new BaseNotFoundException("Product");
+            throw new BaseNotFoundException(Product.class.getSimpleName());
         }
         return list;
     }
@@ -30,7 +30,7 @@ public class ProductService {
     public List<Product> findByName(String name){
         List<Product> list = productRepository.findByNameContaining(name);
         if(list.isEmpty()){
-            throw new BaseNotFoundException("Product");
+            throw new BaseNotFoundException(Product.class.getSimpleName()+" name = "+ name);
         }
         return list;
     }
@@ -40,7 +40,7 @@ public class ProductService {
         if(product.isPresent()){
             return  product;
         }
-        throw  new BaseNotFoundException(Product.class.getSimpleName());
+        throw  new BaseNotFoundException(Product.class.getSimpleName()+" id = "+id);
     }
 
 }

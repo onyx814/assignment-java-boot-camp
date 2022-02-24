@@ -6,6 +6,9 @@ public class ResponseList<T> extends ResponseBase {
 
     private List<T> data;
 
+    public ResponseList() {
+    }
+
     public ResponseList(ResponseHeader header, List<T> data) {
         this.setHeader(header);
         this.setData(data);
