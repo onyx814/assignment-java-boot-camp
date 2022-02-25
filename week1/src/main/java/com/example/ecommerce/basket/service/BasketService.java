@@ -63,21 +63,16 @@ public class BasketService {
 
     @Transactional
     public  Boolean updateStatus(int id , String status) throws Exception {
-        boolean isSuccess = false;
         try {
             /* CO: checkout, CF: confirm, CN: cancel(ยังไม่ทำ cancel ใน รอบนี้ ) */
             if(!("CO".equals(status)||"CF".equals(status))){
-                isSuccess = false;
                 throw  new Exception(" status invalid!");
             }
             basketRepository.updateStatus(status,id);
-            isSuccess =true;
+           return  true ;
         }catch (Exception e){
-
             throw  new Exception("update status not success");
         }
-        return isSuccess;
-
     }
 
 

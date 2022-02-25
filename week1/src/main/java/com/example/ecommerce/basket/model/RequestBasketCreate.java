@@ -7,6 +7,14 @@ public class RequestBasketCreate {
     private  int userId;
     private Product product;
 
+    public RequestBasketCreate() {
+    }
+
+    public RequestBasketCreate(int userId, Product product) {
+        this.userId = userId;
+        this.product = product;
+    }
+
     public int getUserId() {
         return userId;
     }

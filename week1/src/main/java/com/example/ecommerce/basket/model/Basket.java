@@ -31,10 +31,24 @@ public class Basket {
     public Basket() {
     }
 
+    public Basket(int id, BigDecimal totalAmount, String status) {
+        this.id = id;
+        this.totalAmount = totalAmount;
+        this.status = status;
+    }
+
     public Basket(BigDecimal totalAmount, String status, User user) {
         this.totalAmount = totalAmount;
         this.status = status;
         this.user = user;
+    }
+
+    public Basket(int id, BigDecimal totalAmount, String status, User user, List<BasketItem> basketItemList) {
+        this.id = id;
+        this.totalAmount = totalAmount;
+        this.status = status;
+        this.user = user;
+        this.basketItemList = basketItemList;
     }
 
     public int getId() {

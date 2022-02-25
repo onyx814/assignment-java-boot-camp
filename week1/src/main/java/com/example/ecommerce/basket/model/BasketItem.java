@@ -42,6 +42,7 @@ public class BasketItem {
         this.product = product;
     }
 
+
     public int getId() {
         return id;
     }

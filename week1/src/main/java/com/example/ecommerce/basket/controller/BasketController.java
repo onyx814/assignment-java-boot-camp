@@ -31,11 +31,9 @@ public class BasketController extends BaseController {
         return  createResponse(basketService.findById(id));
     }
 
-    @PutMapping(value = "/{id}/status",  consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public  ResponseObject<Boolean> updateStatus(@PathVariable int id, @RequestBody HashMap<String,String> status)throws  Exception{
-
-        String s = (String)status.get("status");
-        return  createResponse(basketService.updateStatus(id,s));
+    @PutMapping(value = "/{id}")
+    public  ResponseObject<Boolean> updateStatus(@PathVariable int id, @RequestParam(value = "status", required = true) String status)throws  Exception{
+        return  createResponse(basketService.updateStatus(id,status));
     }
 
 
