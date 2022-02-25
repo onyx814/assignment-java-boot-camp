@@ -1,12 +1,13 @@
 package com.example.ecommerce.product.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.ecommerce.basket.model.BasketItem;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,14 +16,19 @@ public class Product {
     private String name;
     private String description;
     private BigDecimal price;
+    private Integer quantity;
+
+    @OneToMany(mappedBy = "product" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<BasketItem> basketItemList;
 
     public Product() {
     }
 
-    public Product(String name, String description, BigDecimal price) {
+    public Product(String name, String description, BigDecimal price, Integer quantity) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.quantity = quantity;
     }
 
     public int getId() {
@@ -55,5 +61,13 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 }

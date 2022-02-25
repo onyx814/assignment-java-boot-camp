@@ -31,7 +31,7 @@ class ProductServiceTest {
     void findAll_Success() {
         //arrange
         List<Product> pList = new ArrayList<>();
-        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000));
+        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000),80);
         pList.add(product);
         when(productRepository.findAll()).thenReturn(pList);
 
@@ -70,7 +70,7 @@ class ProductServiceTest {
     void findByName_Success() {
         //arrange
         List<Product> pList = new ArrayList<>();
-        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000));
+        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000),50);
         pList.add(product);
         when(productRepository.findByNameContaining("แจ")).thenReturn(pList);
 
@@ -88,7 +88,7 @@ class ProductServiceTest {
     void findByName_NotFound() {
         //arrange
         List<Product> pList = new ArrayList<>();
-        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000));
+        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000),100);
         pList.add(product);
         when(productRepository.findByNameContaining("แจกัน")).thenReturn(pList);
         when(productRepository.findByNameContaining("สาว")).thenReturn(new ArrayList<>());
@@ -107,7 +107,7 @@ class ProductServiceTest {
     @DisplayName("search by id =1  result ไม่เป็น  null")
     void findById_Success() {
         //arrange
-        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000));
+        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000),9);
         when(productRepository.findById(1)).thenReturn(Optional.of(product));
 
         //act
@@ -124,7 +124,7 @@ class ProductServiceTest {
     void findById_NotFound() {
         //arrange
 
-        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000));
+        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000),12);
 
         when(productRepository.findById(1)).thenReturn(Optional.of(product));
 

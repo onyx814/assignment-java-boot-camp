@@ -34,7 +34,7 @@ class ProductControllerTest {
     void findAll_Success() {
         //arrange
         List<Product> pList = new ArrayList<>();
-        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000));
+        Product product = new Product("แจกัน", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000),10);
         pList.add(product);
         when(productRepository.findAll()).thenReturn(pList);
 
@@ -65,9 +65,9 @@ class ProductControllerTest {
     void findByName_Success() {
         //arrange
         List<Product> pList = new ArrayList<>();
-        Product product = new Product("แจกันจากราชวงศ์หมิง", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000));
+        Product product = new Product("แจกันจากราชวงศ์หมิง", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000),15);
         pList.add(product);
-        product = new Product("แจกันจากราชวงฮั่นแน่", "แจกันจากราชวงฮั่นแน่ ถ้าฮั่นไม่แน่ ฮั้นจะไม่มา", new BigDecimal(9900));
+        product = new Product("แจกันจากราชวงฮั่นแน่", "แจกันจากราชวงฮั่นแน่ ถ้าฮั่นไม่แน่ ฮั้นจะไม่มา", new BigDecimal(9900),23);
         pList.add(product);
         when(productRepository.findByNameContaining("หมิง")).thenReturn(pList);
 
@@ -83,7 +83,7 @@ class ProductControllerTest {
     void findByName_NotFound() {
         //arrange
         List<Product> pList = new ArrayList<>();
-        Product product = new Product("แจกันจากราชวงฮั่นแน่", "แจกันจากราชวงฮั่นแน่ ถ้าฮั่นไม่แน่ ฮั้นจะไม่มา", new BigDecimal(9900));
+        Product product = new Product("แจกันจากราชวงฮั่นแน่", "แจกันจากราชวงฮั่นแน่ ถ้าฮั่นไม่แน่ ฮั้นจะไม่มา", new BigDecimal(9900),2);
         pList.add(product);
         when(productRepository.findByNameContaining("ฮั่น")).thenReturn(pList);
 
@@ -99,7 +99,7 @@ class ProductControllerTest {
     void findById_Success() {
         //arrange
 
-        Product product = new Product("แจกันจากราชวงศ์หมิง", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000));
+        Product product = new Product("แจกันจากราชวงศ์หมิง", "แจกันจากราชวงศ์หมิง เพราะเป็นแจกันคุณหมิง", new BigDecimal(9000),3);
         when(productRepository.findById(1)).thenReturn(Optional.of(product));
 
         //act
@@ -113,7 +113,7 @@ class ProductControllerTest {
     @DisplayName("search by id = 5 : ถ้า ไม่พบ จะแสดงข้อความ Product id = 5 Not Found!")
     void findById_NotFound() {
         //arrange
-        Product product = new Product("แจกันจากราชวงฮั่นแน่", "แจกันจากราชวงฮั่นแน่ ถ้าฮั่นไม่แน่ ฮั้นจะไม่มา", new BigDecimal(9900));
+        Product product = new Product("แจกันจากราชวงฮั่นแน่", "แจกันจากราชวงฮั่นแน่ ถ้าฮั่นไม่แน่ ฮั้นจะไม่มา", new BigDecimal(9900),3);
         when(productRepository.findById(1)).thenReturn(Optional.of(product));
 
         //act

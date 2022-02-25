@@ -1,5 +1,7 @@
 package com.example.ecommerce.member.model;
 
+import com.example.ecommerce.basket.model.Basket;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,6 +26,9 @@ public class User {
 
     @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Address> address;
+
+    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Basket> basketList;
 
     public User() {
     }
