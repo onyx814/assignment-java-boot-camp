@@ -4,6 +4,8 @@ import com.example.ecommerce.member.model.Address;
 import com.example.ecommerce.member.model.User;
 import com.example.ecommerce.member.repository.AddressRepository;
 import com.example.ecommerce.member.repository.UserRepository;
+import com.example.ecommerce.payment.model.Payment;
+import com.example.ecommerce.payment.repository.PaymentRepository;
 import com.example.ecommerce.product.model.Product;
 import com.example.ecommerce.product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class ECommerceApplication {
 
 	@Autowired
 	AddressRepository addressRepository;
+
+	@Autowired
+	PaymentRepository paymentRepository;
 
 	@PostConstruct
 	public void initialData() {
@@ -52,6 +57,16 @@ public class ECommerceApplication {
 		addressRepository.save(addr);
 		addr = new Address("เลขที่ 100  กขคง Condo ถนนอ่อนนุช พระโขนงเหนือ","10260","วัฒนา","กรุงเทพมหานคร","0911111111",null,user);
 		addressRepository.save(addr);
+
+		/* For Payment Master */
+		Payment payment = new Payment("CTV","เคาน์เตอร์เซอร์วิส");
+		paymentRepository.save(payment);
+
+		payment = new Payment("COD","เก็บเงินปลายทาง");
+		paymentRepository.save(payment);
+
+		payment = new Payment("CDE","บัตรเครดิตหรือบัตรเดบิต");
+		paymentRepository.save(payment);
 	}
 
 	public static void main(String[] args) {
