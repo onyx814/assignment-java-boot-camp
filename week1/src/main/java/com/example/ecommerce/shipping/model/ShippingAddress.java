@@ -1,10 +1,12 @@
-package com.example.ecommerce.member.model;
+package com.example.ecommerce.shipping.model;
+
+import com.example.ecommerce.basket.model.Basket;
 
 import javax.persistence.*;
 
+@Table(name="shipping_address")
 @Entity
-@Table(name="address")
-public class Address {
+public class ShippingAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -25,37 +27,19 @@ public class Address {
     @Column(name="tel")
     private String tel;
 
-    @Column(name="default_shipping")
-    private String defaultShipping;
-
-    @ManyToOne( fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id", referencedColumnName = "id" ,nullable = false)
-    private User user;
+    @OneToOne(mappedBy = "shippingAddress")
+    private Basket basket;
 
 
-    public Address() {
+    public ShippingAddress() {
     }
 
-
-    public Address(String address, String postcode, String district, String province, String tel, String defaultShipping, User user) {
+    public ShippingAddress(String address, String postcode, String district, String province, String tel) {
         this.address = address;
         this.postcode = postcode;
         this.district = district;
         this.province = province;
         this.tel = tel;
-        this.defaultShipping = defaultShipping;
-        this.user = user;
-    }
-
-    public Address(int id, String address, String postcode, String district, String province, String tel, String defaultShipping, User user) {
-        this.id = id;
-        this.address = address;
-        this.postcode = postcode;
-        this.district = district;
-        this.province = province;
-        this.tel = tel;
-        this.defaultShipping = defaultShipping;
-        this.user = user;
     }
 
     public int getId() {
@@ -104,21 +88,5 @@ public class Address {
 
     public void setTel(String tel) {
         this.tel = tel;
-    }
-
-    public String getDefaultShipping() {
-        return defaultShipping;
-    }
-
-    public void setDefaultShipping(String defaultShipping) {
-        this.defaultShipping = defaultShipping;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

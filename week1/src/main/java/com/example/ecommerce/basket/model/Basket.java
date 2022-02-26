@@ -2,6 +2,7 @@ package com.example.ecommerce.basket.model;
 
 import com.example.ecommerce.member.model.User;
 import com.example.ecommerce.product.model.Product;
+import com.example.ecommerce.shipping.model.ShippingAddress;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -27,6 +28,10 @@ public class Basket {
 
     @OneToMany(mappedBy = "basket" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<BasketItem> basketItemList;
+
+    @OneToOne( fetch = FetchType.EAGER)
+    @JoinColumn(name = "shipping_address_id", referencedColumnName = "id")
+    private ShippingAddress shippingAddress;
 
     public Basket() {
     }
@@ -89,5 +94,13 @@ public class Basket {
 
     public void setBasketItemList(List<BasketItem> basketItemList) {
         this.basketItemList = basketItemList;
+    }
+
+    public ShippingAddress getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(ShippingAddress shippingAddress) {
+        this.shippingAddress = shippingAddress;
     }
 }
