@@ -28,12 +28,13 @@ public class ShippingAddressService {
 
             //call update basket
             basketRepository.updateShippingAddress(item.getBasketId(), itemSave.getId());
+            return  Boolean.TRUE;
         } catch (DataAccessException ex) {
-            new RuntimeException("createShippingAddress fail");
+            throw new RuntimeException("createShippingAddress fail");
         } catch (Exception e) {
-            new Exception("create shipping address fail");
+            throw new Exception("create shipping address fail");
         }
-        return  Boolean.TRUE;
+
     }
 
 

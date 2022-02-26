@@ -5,6 +5,14 @@ public class ShippingAddressBasketReq {
     private  int basketId;
     private  ShippingAddress shippingAddress;
 
+    public ShippingAddressBasketReq() {
+    }
+
+    public ShippingAddressBasketReq(int basketId, ShippingAddress shippingAddress) {
+        this.basketId = basketId;
+        this.shippingAddress = shippingAddress;
+    }
+
     public int getBasketId() {
         return basketId;
     }

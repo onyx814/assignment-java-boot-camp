@@ -1,6 +1,7 @@
 package com.example.ecommerce.basket.model;
 
 import com.example.ecommerce.member.model.User;
+import com.example.ecommerce.payment.model.PaymentTransaction;
 import com.example.ecommerce.product.model.Product;
 import com.example.ecommerce.shipping.model.ShippingAddress;
 
@@ -32,6 +33,9 @@ public class Basket {
     @OneToOne( fetch = FetchType.EAGER)
     @JoinColumn(name = "shipping_address_id", referencedColumnName = "id")
     private ShippingAddress shippingAddress;
+
+    @OneToOne(mappedBy = "basket")
+    private PaymentTransaction paymentTransaction;
 
     public Basket() {
     }

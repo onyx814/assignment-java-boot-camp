@@ -4,8 +4,9 @@ import com.example.ecommerce.basket.model.Basket;
 
 import javax.persistence.*;
 
-@Table(name="shipping_address")
+
 @Entity
+@Table(name="shipping_address")
 public class ShippingAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
