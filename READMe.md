@@ -1,10 +1,4 @@
-## Assignments for Java Boot Camp
-* [Week 1 :: Design and Develop RESTful API with Spring Boot](https://github.com/up1/assignment-java-boot-camp/wiki/Week-01)
-
-
-
-## Resources
-* [Spring Boot Reference](https://spring.io/projects/spring-boot)
-* https://www.baeldung.com/ 
-* https://start.spring.io/
-* [Git commit message](https://www.conventionalcommits.org/en/v1.0.0/)
+## ส่งงานสำหรับ Assignment Week1 
+- [E-commerce system flow และ การออกแบบ APIs](https://github.com/onyx814/assignment-java-boot-camp/wiki/Week-1)
+- [Code ที่ได้พัฒนา อยู่ใน ฺBranch](https://github.com/onyx814/assignment-java-boot-camp/tree/week1)
+- [Task งาน](https://github.com/onyx814/assignment-java-boot-camp/projects/1)
