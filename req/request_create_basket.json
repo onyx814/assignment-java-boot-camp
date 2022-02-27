@@ -1,0 +1,8 @@
+{
+    "userId": 1,
+    "product":{
+        "id":2,
+        "price": 79,
+        "quantity":1
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "basketId":1,
+    "shippingAddress":{
+        "id":1,
+        "address": "เลขที่ 25 ABCDEFU Condo ถนนอ่อนนุช พระโขนงเหนือ",
+        "postcode": "10260",
+        "district": "วัฒนา",
+        "province": "กรุงเทพมหานคร",
+        "tel": "0891234567"
+
+    }
+}

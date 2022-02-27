@@ -1,0 +1,8 @@
+{
+    "paymentId": 2,
+    "basket": {
+        "id": 1,
+        "totalAmount": 79.00,
+        "status": "CO"
+    }
+}
